@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.text.DecimalFormat;
 import java.util.PriorityQueue;
 
-//Gruppennummer: 212
-
 public class HuffmanCode {
 
 	/** list of all chars in the file as Character */
