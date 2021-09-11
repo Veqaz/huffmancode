@@ -7,14 +7,12 @@ import java.util.PriorityQueue;
 
 public class HuffmanCode {
 
-	/** list of all chars in the file as Character */
 	private char[] chars;
 
 	private static DecimalFormat f = new DecimalFormat("#0.0");
 	private static DecimalFormat g = new DecimalFormat("#0.00");
 	private static int allHuffmanBits = 0;
 
-	/** reads a file byte by byte and returns the file as a char[] */
 	private static char[] readFile(String filename) {
 		ArrayList<Character> chars = new ArrayList<Character>();
 		try (FileInputStream fis = new FileInputStream(filename)) {
@@ -96,7 +94,6 @@ public class HuffmanCode {
 
 	    }
 	
-	// zaehlt alle unterschiedlichen zeichen, printet hexadarstellung, absolute und relative haeufigkeit und entropie
 	private static void frequency(char[] chars) {
         char[] clone = new char[chars.length];
         for (int i = 0; i < chars.length; i++) {
@@ -131,7 +128,6 @@ public class HuffmanCode {
 
         }
 
-		// speichert die relative wahrscheinlichkeit
         double[] proz = new double[count.length];
         for (int i = 0; i < count.length; i++) {
             proz[i] = ((double) count[i] / chars.length);
@@ -139,7 +135,6 @@ public class HuffmanCode {
 
 		System.out.println();
 		
-		// berechnet die entropie
         double entropie = 0;
         for (int i = 0; i < diffChars(chars).length; i++) {
             entropie += proz[i] * lg(proz[i]);
@@ -148,8 +143,7 @@ public class HuffmanCode {
 		System.out.println("Entropie\t\t\t  : " + g.format(-(entropie)));
 		
     }
-	
-    /** berechnet log zur basis 2 */
+
 	public static double lg( double x ) {
 	  return Math.log( x ) / Math.log( 2 );
     }
